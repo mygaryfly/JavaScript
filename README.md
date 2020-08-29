@@ -6,3 +6,4 @@
 
 1. [day-1 JS基础](./days/day1.md)
 2. [day-2 JS数组](./days/day2.md)
+3. [day-3 for 循环](./days/day3.md)
