@@ -259,3 +259,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
 * 如果脚本无需等待页面解析，且无依赖独立运行，那么应使用 async。
 * 如果脚本需要等待页面解析，且依赖于其它脚本，调用这些脚本时应使用 defer，将关联的脚本按所需顺序置于 HTML 中。
+
+<br>
+
+
+***
+<br>
+
+#### **五，类型**
+
+JavaScript 程序可以修改值（value），这些值都有各自的类型。JavaScript 中的类型包括：
+
+* `Number`（数字）
+* `String`（字符串）
+* `Boolean`（布尔）
+* `Function`（函数）
+* `Object`（对象）
+* `Symbol`（ES2015 新增）
+
+还有些…奇怪的 `undefined`（未定义）类型和 `null`（空）类型。此外还有`Array`（数组）类型，以及分别用于表示日期和正则表达式的 `Date`（日期）和`RegExp`（正则表达式），这三种类型都是特殊的对象。
+
+* Number（数字）
+* String（字符串）
+* Boolean（布尔）
+* Symbol（符号）（ES2015 新增）
+* Object（对象）
+* Function（函数）
+* Array（数组）
+* Date（日期）
+* RegExp（正则表达式）
+* null（空）
+* undefined（未定义）
+
+JavaScript 还有一种内置的 `Error`（错误）类型。但是，如果我们继续使用上面的分类，事情便容易得多；所以，现在，我们先讨论上面这些类型。
