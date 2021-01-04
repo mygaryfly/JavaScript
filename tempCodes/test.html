@@ -14,15 +14,12 @@
 		
 		<script>
 
-
-			function fn(x) {
-				var a=[1,2,3,4,5,6];
-				var i;
-				for(i>0;i<a.lenth;i++){
-					console.log(a[i]);
-				}
-			}	
-
+			// 判断年份是否闰年
+			function year(x){
+				if(x%4==0 && x%100!=0 || x%400==0) {
+					return console.log('闰年')
+				}else return console.log('平年')
+			}
 		</script>
 	</head>
 	
