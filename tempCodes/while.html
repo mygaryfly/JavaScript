@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While</title>
+</head>
+<body>
+    <script>
+
+        var i = 0;
+        while (i<=10) {
+            console.log('i='+i);
+            i++;
+        }
+
+        // 练习1：请计算1--100之间所有数字的和
+        var j = 1;
+        var s1 = 0;
+        while (j<=100) {
+            s1=s1+j;
+            j++;
+        }
+        console.log(s1)
+
+        // 练习2：请统计所有100以内7的倍数
+        var k = 1;
+
+        while (k<=100) {
+            k++;
+            if (k % 7 == 0) {
+                console.log(k+'是7的倍数')
+            }
+        }
+
+        // 练习3： 请打印100以内所有偶数的和
+        var l = 1;
+        var s3 = 0;
+        while (l <= 100) {
+            
+            if (l%2 == 0){
+                s3 = s3 + l;
+            }
+            l++;
+        }
+        console.log('100以内所有偶数的和是'+s1);
+
+        // 练习4： 请打印所有100以内能被3整除的数的和
+        var m = 1;
+        var s4 = 0;
+        while (m<=100) {
+            if(m%3==0){
+                s4+=m;        
+            }
+            m++;
+            
+        }
+        console.log('所有100以内能被3整除的数的和是'+s4)
+    </script>
+    
+</body>
+</html>
