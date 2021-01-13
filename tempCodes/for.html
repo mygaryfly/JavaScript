@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for循环</title>
+</head>
+<body>
+    <script>
+        // for(初始表达式；判断表达式；自增 or 自减；){
+        //     代码
+        // }
+
+        // 请打印1--100之间所有数的和
+        var s = 0;
+        for(i=0;i<=100;i++) {
+            s+=i;
+
+        }
+        console.log('1--100之间所有数的和为：'+s);
+
+        // 请打印1--100之间所有偶数的和
+        var s1 = 0;
+        for (i=0;i<=100;i++){
+            if (i%2==0) {
+                s1+=i;
+            }
+        }
+        console.log('1--100之间所有偶数的和为：'+s1)
+
+        // 请打印长宽都为10个*的正方形
+        console.log('请打印长宽都为10个*的正方形')
+        var space = '';
+        for(i=0;i<10;i++){
+            for (k=0;k<10;k++){
+                space+='* '
+            }
+            space+='\n'
+        }
+        console.log(space);
+    </script>
+</body>
+</html>
