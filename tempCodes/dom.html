@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="blue">
+
+    <!-- 这是一个注释 -->
+    <!-- <script>
+        // 1. dom的解析顺序一般是自上而下，一般情况下，会把script标签放在body的最下方以获得上面所有内容的解析
+        // 2. 调整dom解析顺序的方式有以下几种：
+        // 2.1 设置异步 setTimeout(() => {
+            
+        // });
+        // 2.2 window.onload=function(){} ,在事件中添加方法也能够无视解析顺序得到执行函数的结果
+        // 2.3 通过用script标签以外部引入js文件的方式,设置defer来推迟指定script标签的解析顺序以达到目的
+        /* eg: <script src="xxx.js" defer> */
+        console.log(document.nodeType)
+        console.log(document.body.nodeType)
+        console.log(document.body.attributes[0].nodeType)
+        console.log(document.body.childNodes[0])
+        console.log(document.body.childNodes[0].nodeType) //文本节点的类型 3
+        console.log(document.body.childNodes[1].nodeType) //注释节点的类型 8
+    </script> -->
+    <div id="hd">开始学习dom</div>
+    <script>
+        // let hd = document.getElementById('hd')
+        // console.log(hd) //显示标签的描述
+        // console.dir(hd) //显示标签的结构
+
+    </script>
+</body>
+</html>

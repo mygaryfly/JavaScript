@@ -4,11 +4,16 @@
 	<meta CHARSET = "UTF-8">
 	<head>
 		<style>
-			div {
+			-div {
 				width: 100px;
 				height: 100px;
 				background-color: green;
 			
+			}
+
+			.enlarge {
+				width:50px;
+				height:50px;
 			}
 		</style>
 		
@@ -20,11 +25,22 @@
 					return console.log('闰年')
 				}else return console.log('平年')
 			}
+
+			function big() {
+				var test = document.getElementsByClassName("enlarge")
+				test.style.width="200px"
+				test.style.height="200px"
+				test.style.backgroundcolor="red"
+
+			}
+			
 		</script>
 	</head>
 	
 	<body>
-		<div>我是真哥哥</div>
+		<div class="enlarge">我是真哥哥</div>
+		<div class="enlarge">我是真哥哥</div>
+		<div class="enlarge">我是真哥哥</div>
 	</body>
 	
 	
