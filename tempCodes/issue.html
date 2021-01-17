@@ -27,8 +27,10 @@
                 click ++;
                 if (click%2 == 0) {
                     this.style.backgroundColor="skyblue";
-                } else {
+                } else if (click% 3 == 0){
                     this.style.backgroundColor="tomato";
+                } else {
+                    this.style.backgroundColor="pink";
                 }
 
             }
