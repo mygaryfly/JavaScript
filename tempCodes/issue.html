@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue</title>
+    <style>
+        #changeColor {
+            width:200px;
+            height: 200px;
+            background-color: aquamarine;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="changeColor">请帮我改个颜色</div>
+    <div id="green" style="cursor:pointer;width:100px;height:30px;border:1px solid black;margin:10px;text-align:center;">绿色</div>
+    <div id="red" style="cursor:pointer;width:100px;height:30px;border:1px solid black;margin:10px;text-align:center;">红色</div>
+    <div id="skyblue" style="cursor:pointer;width:100px;height:30px;border:1px solid black;margin:10px;text-align:center;">天蓝色</div>
+    <script>
+          
+            var change=document.getElementById("changeColor");
+            var click = 0;
+            change.onclick = function () {
+                click ++;
+                if (click%2 == 0) {
+                    this.style.backgroundColor="skyblue";
+                } else {
+                    this.style.backgroundColor="tomato";
+                }
+
+            }
+
+    </script>
+</body>
+</html>

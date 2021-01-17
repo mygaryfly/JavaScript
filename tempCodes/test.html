@@ -28,11 +28,18 @@
 
 			function big() {
 				var test = document.getElementsByClassName("enlarge")
-				test.style.width="200px"
-				test.style.height="200px"
-				test.style.backgroundcolor="red"
+				for(i=0;i<test.length;i++) {
+				test[i].style.width="200px"
+				test[i].style.height="200px"
+				test[i].style.color="red"
+				test[i].style.background="green";
+				test[i].style.margin="5px";
 
+				}
+				
 			}
+
+			
 			
 		</script>
 	</head>
