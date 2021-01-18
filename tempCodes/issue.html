@@ -18,23 +18,44 @@
     <div id="changeColor">请帮我改个颜色</div>
     <div id="green" style="cursor:pointer;width:100px;height:30px;border:1px solid black;margin:10px;text-align:center;">绿色</div>
     <div id="red" style="cursor:pointer;width:100px;height:30px;border:1px solid black;margin:10px;text-align:center;">红色</div>
-    <div id="skyblue" style="cursor:pointer;width:100px;height:30px;border:1px solid black;margin:10px;text-align:center;">天蓝色</div>
+    <div id="blue" style="cursor:pointer;width:100px;height:30px;border:1px solid black;margin:10px;text-align:center;">天蓝色</div>
     <script>
-          
+            // onclick事件,几乎所有的元素都可以使用点击事件，并非只有button才可以
+            // onclick语法，getElementby... = function () {代码：需要点击实现的效果}
             var change=document.getElementById("changeColor");
             var click = 0;
             change.onclick = function () {
                 click ++;
                 if (click%2 == 0) {
                     this.style.backgroundColor="skyblue";
+                    this.style.color="white";
                 } else if (click% 3 == 0){
                     this.style.backgroundColor="tomato";
+                    this.style.color="golden";
                 } else {
                     this.style.backgroundColor="pink";
+                    this.style.color="blue";
                 }
 
             }
 
+            var green = document.getElementById("green");
+            green.onclick = function () {
+                this.style.color="green";
+                change.style.backgroundColor="green";
+            }
+
+            var red = document.getElementById("red");
+            red.onclick = function () {
+                this.style.color="red";
+                change.style.backgroundColor="red";
+            }
+
+            var blue = document.getElementById("blue");
+            blue.onclick = function () {
+                this.style.color="blue";
+                change.style.backgroundColor="blue";
+            }
     </script>
 </body>
 </html>

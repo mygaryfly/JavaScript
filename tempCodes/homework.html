@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+            /**
+      可以看到页面中已经有3个没写样式的div
+      根据给定数组的样式规则
+      用js分别渲染这3个div
+    */
+    var arr = [
+      {
+        width: 200,
+        height: 200,
+        background: 'red'
+      },
+      {
+        width: 100,
+        height: 300,
+        border: '1px solid black'
+      },
+      {
+        width: 300,
+        height: 200,
+        color: '#fff',
+        background: 'black',
+        text: 'test'
+      }
+    ]
+    // TODO作业从这后面开始写起
+
+    // var el = document.getElementsByTagName("div");
+    // el[0].style.width = arr[0].width + 'px';
+    // el[0].style.height = arr[0].height + 'px';
+    // el[0].style.background = arr[0].background;
+    // el[1].style.width = arr[1].width + 'px';
+    // el[1].style.height = arr[1].height + 'px';
+    // el[1].style.border = arr[1].border;
+    // el[2].style.width = arr[2].width + 'px';
+    // el[2].style.height = arr[2].height + 'px';
+    // el[2].style.color = arr[2].color;
+    // el[2].style.background = arr[2].background;
+    // el[2].style.text = arr[2].text;
+
+    var el = document.getElementsByTagName("div");
+    function getAttr () {
+
+      for (var i=0;i<arr.length;i++) {
+        el[i].style.width = arr[i].width+'px';
+        el[i].style.height = arr[i].height+'px';
+        el[i].style.background = arr[i].background;
+        el[i].style.border = arr[i].border;
+        el[i].style.color = arr[i].color;
+        el[i].style.text = arr[i].text;
+      }
+    }
+    
+    getAttr();
+    
+
+    </script>
+</body>
+</html>
