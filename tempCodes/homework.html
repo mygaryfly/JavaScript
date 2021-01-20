@@ -35,7 +35,7 @@
       }
     ]
     // TODO作业从这后面开始写起
-
+    // 方法1
     // var el = document.getElementsByTagName("div");
     // el[0].style.width = arr[0].width + 'px';
     // el[0].style.height = arr[0].height + 'px';
@@ -49,21 +49,45 @@
     // el[2].style.background = arr[2].background;
     // el[2].style.text = arr[2].text;
 
-    var el = document.getElementsByTagName("div");
-    function getAttr () {
+    // 方法2
+    // var el = document.getElementsByTagName("div");
+    // function getAttr () {
 
+    //   for (var i=0;i<arr.length;i++) {
+    //     el[i].style.width = arr[i].width+'px';
+    //     el[i].style.height = arr[i].height+'px';
+    //     el[i].style.background = arr[i].background;
+    //     el[i].style.border = arr[i].border;
+    //     el[i].style.color = arr[i].color;
+    //     el[i].style.text = arr[i].text;
+    //   }
+    // }
+    
+    // getAttr();
+    
+    var el = document.getElementsByTagName("div");
+    
+    function getAttr() {
       for (var i=0;i<arr.length;i++) {
-        el[i].style.width = arr[i].width+'px';
-        el[i].style.height = arr[i].height+'px';
-        el[i].style.background = arr[i].background;
-        el[i].style.border = arr[i].border;
-        el[i].style.color = arr[i].color;
-        el[i].style.text = arr[i].text;
+        for (var j in arr[i]) {
+          if (typeof (arr[i][j]) == "number") {
+            arr[i][j]+='px'
+          }
+          
+          el[i]["style"][j] = arr[i][j];  
+          
+          if (j=="text") {
+            el[i].innerHTML=arr[i][j]
+          }
+        }
+        console.log(el[i]["style"])
       }
+      
     }
-    
+
     getAttr();
-    
+
+     // 如果页面中没有div,根据给定数组的样式规则，用js渲染效果 
 
     </script>
 </body>
