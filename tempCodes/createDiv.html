@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creatDiv</title>
+</head>
+<body>
+    <script>
+        var divTitle = document.createElement("div")
+        var  creatTitle= function(){
+            // 添加id
+            divTitle.id = "title"
+            //定义divTitle的属性
+            let divTitleStyle = {width:"300px",height:"100px",color:"red",fontSize:"2em",fontWeight:"bold"}
+            // 遍历动态获得属性
+            for (key in divTitleStyle){
+                divTitle.style[key]=divTitleStyle[key]
+            }
+            divTitle.innerHTML="创建div的案例" //为div添加文字
+            //body中加入这个divTitle
+            document.body.appendChild(divTitle);
+
+
+        }
+
+        creatTitle();
+
+        var creatInput = function(){
+            //遍历添加input元素
+            for (i=0;i<6;i++){
+                let inputs = document.createElement("input")
+                document.body.appendChild(inputs)
+            }
+            //获取input清单
+            let inputList = document.getElementsByTagName("input") 
+            //创建一个input属性集
+            let inputType = {text:"width",text1:"height",color:"background",checkBox:"has-border",checkBox1:"50% opacity",button:"Creat"}
+            for (i=0;i<inputList.length;i++) {
+                
+                inputList[i].type=Object.keys(inputType)[i]
+                inputList[i].name=Object.values(inputType)[i]
+                
+            }
+            console.log(inputList[0])
+        }
+
+        creatInput();
+    </script>
+</body>
+</html>

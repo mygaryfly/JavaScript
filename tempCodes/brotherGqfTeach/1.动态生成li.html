@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      width: 50px;
+    }
+  </style>
+</head>
+<body>
+  <button id="addBtn">add</button>
+</body>
+<script>
+  var arr = [1, 2, 3, 4, 5, 6, 7];
+  var ul = document.createElement('ul');
+  ul.id = "result";
+  document.body.appendChild(ul);
+  var render = function () {
+    for(var i = 0; i < arr.length; i++) {
+      var li = document.createElement('li');
+      li.innerHTML = arr[i];
+      ul.appendChild(li);
+    }
+  }
+  render();
+  document.getElementById('addBtn').onclick = function () {
+    var li = document.createElement('li');
+    li.innerHTML = arr.length + 1;
+    ul.appendChild(li);
+  }
+</script>
+</html>
