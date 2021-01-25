@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>creatDiv</title>
+    <title>createtDiv</title>
 </head>
 <body>
     <script>
@@ -35,14 +35,14 @@
             //获取input清单
             let inputList = document.getElementsByTagName("input") 
             //创建一个input属性集
-            let inputType = {text:"width",text1:"height",color:"background",checkBox:"has-border",checkBox1:"50% opacity",button:"Creat"}
+            let inputType = ["text","text","color","checkBox","checkBox","button"]
             for (i=0;i<inputList.length;i++) {
                 
-                inputList[i].type=Object.keys(inputType)[i]
-                inputList[i].name=Object.values(inputType)[i]
+                inputList[i].type=inputType[i]
+                
                 
             }
-            console.log(inputList[0])
+            console.log(inputType[0])
         }
 
         creatInput();

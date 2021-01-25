@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click and create divs</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: lightskyblue;
+            width: 100vw;
+            height: 100vw;
+        }
+
+        #block1, #block2 {
+            width: 40%;
+            height: 40%;
+            margin: 20px;
+            border: 5px solid tomato;
+        }
+    </style>
+</head>
+<body>
+    <div id="block1"></div>
+    <div id="block2"></div>
+    <script>
+
+        var redBlock1 = document.getElementById("block1");
+        // 创建一个按钮
+        var btn1 = document.createElement("button");
+        redBlock1.appendChild(btn1);
+
+        
+        btn1.innerText = "点击创建10个div" 
+        //为按钮点击事件添加方法
+        btn1.onclick = function () {
+            var createUl = document.createElement("ul");
+            redBlock1.appendChild(createUl);
+            var father = document.getElementsByTagName("ul")
+
+            const liList = Array(10);
+            for (var i = 0;i < liList.length;i++) {
+                 (function createLi (){
+                    let son = document.createElement("li");
+                    father.appendChild(son) 
+                })()
+                
+                console.log(i);
+            }    
+            
+        }
+    </script>
+</body>
+</html>
