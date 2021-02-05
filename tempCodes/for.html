@@ -38,6 +38,34 @@
             space+='\n'
         }
         console.log(space);
+
+        // 打印三角形
+        console.log('请打印一个普通三角形');
+        (function square(){
+            for (let i=0;i<10;i++) {
+                var star = '* '
+                console.log(star.repeat(i+1)+'\n')
+            }
+        })()
+
+        console.log('请再打印一个普通三角形');
+        (function tri(){
+            var s = '';
+            for (let i=10;i>0;i--){
+                var star = '* '
+                s+=star.repeat(i)+'\n';
+            }
+            console.log(s);
+        })()
+
+        // 打印乘法表
+        console.log('请再打印99乘法表');
+        (function multiplication (){
+            for (let i=0;i<10;i++) {
+                
+            }
+        })()
+        
     </script>
 </body>
 </html>
