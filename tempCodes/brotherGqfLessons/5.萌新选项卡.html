@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      display: none;
+    }
+    div.active {
+      display: block;
+    }
+    button.active {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <button class="active">A</button>
+  <button>B</button>
+  <button>C</button>
+  <div class="active">A</div>
+  <div>B</div>
+  <div>C</div>
+  <script>
+    let btns = document.getElementsByTagName('button')
+    let divs = document.getElementsByTagName('div')
+    // console.log(btns, divs)
+    for (var i = 0; i < btns.length; i++){
+      // console.log(btns[i])
+      var btn = btns[i];
+      btn.index = i;
+      btn.onclick = function(){
+        console.log(this.index, this.innerHTML)
+        // 先清空所有的样式
+        for (var j = 0; j < btns.length; j++) {
+          btns[j].className = ""
+          divs[j].className = ""
+        }
+        // 在对点击的按钮设置样式
+        btns[this.index].className = "active"
+        divs[this.index].className = "active"
+      }
+    }
+
+  </script>
+</body>
+</html>

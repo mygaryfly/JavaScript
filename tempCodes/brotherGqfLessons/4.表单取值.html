@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    用户名<input type="text" id="username" class="gql gqf">
+  </div>
+  <div>
+    密码<input type="text" id="password">
+  </div>
+  <div>
+    <button id="btn">提交</button>
+  </div>
+  <script>
+    var usernameInput = document.getElementById('username')
+    var passwordInput = document.getElementById('password')
+    var btn = document.getElementById('btn')
+    // console.log(usernameInput, passwordInput)
+    btn.onclick = function () {
+      var username = usernameInput.value
+      if (!username) {
+        alert('请输入用户名')
+        return;
+      }
+      var password = passwordInput.value
+      if (!password) {
+        alert('请输入密码')
+        return;
+      }
+      console.log(username, password)
+      if (username == 'gql' && password == '1234') {
+        alert('登录成功')
+      } else {
+        alert('登录失败，请重新输入')
+        // usernameInput.value = "哦哟喂账号输错了快重输"
+        // passwordInput.value = "TMD你密码也错啦";
+        usernameInput.value = ""
+        passwordInput.value = "";
+      }
+    }
+
+  </script>
+</body>
+</html>

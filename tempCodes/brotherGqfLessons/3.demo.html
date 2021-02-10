@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        overflow: hidden;
+      }
+      #box {
+        position: relative;
+        width: 900px;
+        height: 900px;
+        /* background: url("./test.jpg") no-repeat center / 900px 900px; */
+        margin: 100px auto;
+        /* border: 1px solid black; */
+      }
+      .child {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        /* float: left; */
+        background: url("./test.jpg");
+        transition: 2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      const { random } = Math;
+      const randomRange = (min, max) => random() * (max - min) + min;
+      var totalWidth = 900;
+      var totalHeight = 900;
+      var unitWidth = 100;
+      var unitHeight = 100;
+      var cols = totalWidth / unitWidth;
+      var rows = totalHeight / unitHeight;
+      console.log({ cols, rows });
+      var length = cols * rows;
+
+      var oBox = document.getElementById("box");
+      console.log(oBox);
+      for (var i = 0; i < length; i++) {
+        let x = i % cols;
+        let y = Math.floor(i / cols);
+        let child = document.createElement("div");
+        child.className = "child";
+        // child.style.backgroundColor = 'red';
+        child.style.width = unitWidth + "px";
+        child.style.height = unitHeight + "px";
+        // child.style.left = x * unitWidth + 'px';
+        // child.style.top = y * unitHeight + 'px';
+        child.style.left = randomRange(0, window.innerWidth) + "px";
+        child.style.top = randomRange(0, window.innerHeight) + "px";
+        child.style.backgroundPosition = `${-x * unitWidth}px ${
+          -y * unitHeight
+        }px`;
+        // child.innerHTML = x + ',' + y;
+        oBox.appendChild(child);
+      }
+
+      window.onload = function () {
+        let childs = document.querySelectorAll(".child");
+        for (var i = 0; i < length; i++) {
+          let x = i % cols;
+          let y = Math.floor(i / cols);
+          childs[i].style.left = x * unitWidth + 'px';
+          childs[i].style.top = y * unitHeight + 'px';
+        }
+      };
+    </script>
+  </body>
+</html>
