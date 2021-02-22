@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>for循环</title>
+    <style>
+
+    </style>
 </head>
 <body>
+    
     <script>
         // for(初始表达式；判断表达式；自增 or 自减；){
         //     代码
@@ -85,6 +89,46 @@
             console.log(calc);
         })()
         
+        // 动态生成li
+
+        var btn = document.createElement("button");
+        btn.type = 'button';
+        btn.style.width = '100px';
+        btn.style.height = '50px';
+        
+        btn.innerHTML = 'add';
+        btn.id = 'addBtn';
+
+        var ul = document.createElement('ul');
+        ul.style.width = '100px';
+        document.body.appendChild(btn);
+        document.body.appendChild(ul);
+
+        // var arr = [1,2,3,4,5,6,7,8,9];
+        
+        // var trigger = function () {
+            
+        //     for (var i = 0 ; i < arr.length; i++) {
+        //         var li = document.createElement('li');
+        //         li.innerHTML=arr[i];
+        //         ul.appendChild(li);
+        //     }
+        // }
+        
+        // trigger();
+
+        document.getElementById('addBtn').onclick = function () {
+            var li = document.createElement('li');
+            var arr = [0];
+            for (var i = 0; i <=100 ; i ++) {
+                li.innerHTML = i;
+                ul.appendChild(li);
+            }
+
+        }
+
+
+
     </script>
 </body>
 </html>
