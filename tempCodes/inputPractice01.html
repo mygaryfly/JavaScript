@@ -48,11 +48,63 @@
              <br>
              <label for="imgUpload">选择一张图片上传</label>
              <input type="file" name="imgUpload" id="imgUpload" accept=".jpg, .jpeg, .png, .gif, .bmp" multiple>
-
-
-            </input>
          </fieldset>
-         <fieldset></fieldset>
+         <fieldset>
+             <label for="myURL">请输入个人主页链接</label>
+             <input type="url" name="myURL" id="myURL" list="defaultURLs" placeholder="一个链接">
+             <datalist id="defaultURLs">
+                    <option value="https:// www.baidu.com"></option>
+                    <option value="https:// www.google.com"></option>
+                    <option value="www.bilibili.com"></option>
+                    <option value="www.sohu.com"></option>
+             </datalist>
+             <br>
+             <label for="tel">电话号码</label>
+             <input type="tel" name="tel" id="tel" placeholder="输入电话号码">
+             <br>
+             <label for="seek">请搜索一个喜欢的运动</label>
+             <input type="serach" name="seek" id="seek" list="sports">
+             <datalist id="sports">
+                 <option value="篮球"></option>
+                 <option value="足球"></option>
+                 <option value="羽毛球"></option>
+                 <option value="冰球"></option>
+                 <option value="田径"></option>
+                 <option value="橄榄球"></option>
+             </datalist>
+             <input type="button" value="Search...">   
+             <br>
+             <label for="e-mail">输入你的learnJS.com e-mail地址</label> 
+             <input type="email" name="e-mail" id="e-mail" placeholder="userName@learnJS.com" size="30" multiple>
+             <br>
+             <label for="selColor">请选择一个颜色</label>
+             <input type="color" name="selColor" id="selColor">
+             <br>
+             <label for="NUM">请输入一些数字</label>
+             <input type="number" name="NUM" id="NUM">
+             <br>
+             <label for="range">请给出一个范围</label>
+             <input type="range" name="range" name="range">
+             <br>
+             <label for="month">请指定年月</label>
+             <input type="month" name="month" id="month">
+             <br>
+             <label for="date">请给定日期</label>
+             <input type="date" name="date" id="date">
+             <br>
+             <label for="datetime">请给日期和时间</label>
+             <input type="datetime" name="datetime" id="datetime">
+             <br>
+             <label for="datetime-local">请给日期和时间</label>
+             <input type="datetime-local" name="datetime-local" id="datetime-local">
+             <br>
+             <label for="time">锁定一个时间</label>
+             <input type="time" name="time" id="time">
+             <br>
+             <label for="week">第几周啦？</label>
+             <input type="week" name="week" id="week">
+
+         </fieldset>
      </form>
 </body>
 </html>
