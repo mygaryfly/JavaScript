@@ -11,6 +11,10 @@
             display: none;
         }
 
+        div#active {
+            display: block;
+        }
+
         input#active {
             background-color: aquamarine;
             color: palevioletred;
@@ -30,13 +34,28 @@
     <script> 
         var btns = document.getElementsByTagName("input");
         var texts = document.getElementsByTagName("div");
-        for (var i = 0 ; i < btns.length; i++) {
-            
-            btns[i].onclick = function () {
-                btns[i].id = "";
+
+        (function reflect () {
+            for ( var i = 0 ; i < btns.length ; i++ ) {
+                
+
+                btns[i].onclick = function (){
+                    for (var j = 0; j < btns.length; j++) {
+                        btns[j].id = "";
+                        texts[j].id = "";
+                    } // 每次改变前清除所有样式
+                    
+                    this.id = "active";
+                    texts[k].id = "active"
+                    texts[k].innerHTML = this.value;
+                }
+
+                var k = i;
             }
-            btns[i].id = "active"
-        }    
+        })();
+
+        
+   
     </script>
 </body>
 </html>
