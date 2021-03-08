@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单取值测试1</title>
+</head>
+<body>
+    <span>用户名：</span><input type="text" id="user">
+    <br>
+    <span>请输入密码：</span><input type="password" id="psd">
+    <br>
+    <span>再次输入你的密码：</span><input type="password" id="psdRepeat">
+    <br>
+    <input type="button" value="开始创建你的账号" id="create">
+    <script>
+
+        var user = document.getElementById("user");
+        user.placeholder = "请输入用户名" ;
+        var psd = document.getElementById("psd");
+        psd.placeholder = "请输入密码";
+        var psdRepeat = document.getElementById("psdRepeat");
+        psdRepeat.placeholder = "请再次输入密码";
+        var createAccount = document.getElementById("create");
+
+        var userList = [];
+        var psdList = [];
+
+        createAccount.onclick = function () {
+
+
+            console.log(userList);
+
+            for (var i=0; i< userList.length; i++) {
+                if (userList[i] == user.value) {
+                    alert("该用户名已被使用，请换一个！")
+                }
+            }
+            
+            if (user.value=="") {
+                alert("你忘记输入用户名咯！")
+            } else if (psd.value==""){
+                alert("你忘记输入密码咯！")
+            } else if (psdRepeat.value==""){
+                alert("请再次输入你的密码来验证！")
+
+            } else if (psd.value!=psdRepeat.value) {
+                alert("输入的密码不一致，请重新输入")
+            } else {
+                userList.push(user.value);
+                userList.length += 1;
+                psdList.push(psdRepeat.value);
+                psdList.length += 1;
+            }
+            
+            console.log(userList,psdList);
+        }
+
+    </script>
+</body>
+</html>
