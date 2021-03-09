@@ -48,6 +48,18 @@
 		<div class="enlarge">我是真哥哥</div>
 		<div class="enlarge">我是真哥哥</div>
 		<div class="enlarge">我是真哥哥</div>
+		<script>
+			var divList = document.getElementsByClassName("enlarge");
+			divList[0].classList.add("1stClass","2ndClass","3rdclass")
+			console.log(divList[0]);
+			var judge = divList[0].classList.contains("2stClass");
+			console.log(judge);
+			var s = divList[0].classList.item(3);
+			console.log(s);
+			divList[0].classList.toggle("2ndclass");
+			console.log(divList[0]);
+
+		</script>
 	</body>
 	
 	

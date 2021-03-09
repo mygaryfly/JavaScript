@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数练习</title>
+</head>
+<body>
+    <script>
+        // 编写一个函数，计算三个数字的大小，按从小到大顺序输出
+        
+        var sort = function (a,b,c) {
+           var min = (a < b ? a : b) < c ? (a < b ? a : b) : c;
+           console.log(min);
+           var result = new Array();
+           result.push(min);
+
+           var arr = [a,b,c]
+           var midOrMax = new Array();
+           for (i = 0; i < arr.length; i++) {
+               if (arr[i] > min) {
+                   midOrMax.push(arr[i])
+               }
+           }
+
+           var mid = midOrMax[0] < midOrMax[1] ? midOrMax[0] : midOrMax[1];
+           var max = midOrMax[0] > midOrMax[1] ? midOrMax[0] : midOrMax[1];
+           result.push(mid);
+           result.push(max);
+
+           console.log(result);
+        }
+
+    </script>
+</body>
+</html>
