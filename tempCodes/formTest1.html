@@ -14,6 +14,16 @@
     <span>再次输入你的密码：</span><input type="password" id="psdRepeat">
     <br>
     <input type="button" value="开始创建你的账号" id="create">
+    <br>
+    <div style="height:0; width:500px; border:1px solid black;margin: 20px 0;"></div>
+    <span>Username</span><input type="text" id="logUser">
+    <br>
+    <span>password</span><input type="password" id="logPsd">
+    <br>
+    <input type="button" value = "登录" id="login">
+
+    
+    
     <script>
 
         var user = document.getElementById("user");
@@ -55,6 +65,23 @@
             }
             
             console.log(userList,psdList);
+        }
+
+        var logUser = document.getElementById("logUser");
+        var logPsd = document.getElementById("logPsd");
+        var login = document.getElementById("login");
+        logUser.placeholder = "请输入要登录的用户名..."
+        logPsd.placeholder = "请输入登录密码..."
+        login.onclick = function () {
+           for (var i=0; i<userList.length; i++) {
+               if (logUser.value == "" || logPsd.value =="") {
+                   alert("请填写登录的用户名或密码...");
+               } else if (userList[i] == logUser.value && psdList[i] == logPsd.value) {
+                    alert("登录成功");                
+               } else {
+                   alert("用户名或密码不存在");
+               }
+           }
         }
 
     </script>
