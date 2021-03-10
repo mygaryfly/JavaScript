@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单练习2</title>
+</head>
+<body>
+    <form action="">
+        <span>1. Gary最喜欢吃的水果是？</span>
+        <br>
+        <label for="">
+            草莓
+            <input type="radio" name="fruit" id="strawberry" value="0">
+        </label>
+        <label for="">
+            香蕉
+            <input type="radio" name="fruit" id="banana" value="0">
+        </label>
+        <label for="">
+            西瓜
+            <input type="radio" name="fruit" id="correct" value="25">
+        </label>
+        <label for="">
+            葡萄
+            <input type="radio" name="fruit" id="grape" value="0">
+        </label>
+        <br>
+        <input type="button" value="提交答案" id="submit" style="margin:20px 0;">
+    </form>
+    <script>
+        var key1 = document.getElementsByName("fruit");
+        console.log(key1);
+        var submit = document.getElementById("submit");
+        submit.onclick = function(){
+            
+            var score = 0;
+             for(var i=0;i<key1.length;i++){
+                 var correct = document.getElementById("correct");
+                 if (correct.checked==false) {
+                    correct.value=0;
+                 }
+                 score += Number(key1[i].value)
+
+             }            
+
+            console.log(score);
+        }
+    </script>
+</body>
+</html>
