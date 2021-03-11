@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interviewTest01</title>
+</head>
+<body>
+    <!-- 写个函数，功能可以生成n个div,div样式自己随意写，然后每个div都是类似
+    开关功能，点击div，有边框去边框，没边框加边框，可以做的吊一点，也用表单，
+    就用户比如输入10，点击创建，就页面出现10个div，然后用户就可以点div看开关功能是否正确，
+    假设开就是给div加边框，div默认都是关吧，就没边框 -->
+
+    <form action="">
+        <label for="">
+            请自定义图形的尺寸：
+            <span>宽度</span>
+            <input type="text" name="dim" id="divWidth">
+            <span>高度</span>
+            <input type="text" name="dim" id="divHeight">
+            <br>
+            图形个数
+            <input type="text" name="dim" id="qty" style="margin:20px 0">
+        </label>
+        <br>
+        <label for="">
+            <input type="button" value="一键创建你的图形" id="create">
+        </label>
+    </form>
+    <script>
+        var inputPlaceholder = document.getElementsByName("dim");
+        for(var i=0;i<inputPlaceholder.length;i++) {
+            inputPlaceholder[i].placeholder = "请输入小于200的数字"
+        }
+
+        var btn4Create = document.getElementById("create");
+        var divWidth = document.getElementById("divWidth");
+        var divHeight = document.getElementById("divHeight");
+        var divQty = document.getElementById("qty");
+
+        
+        btn4Create.onclick = function(){
+            
+            for (var i=0;i<divQty.value;i++){
+                
+                var newDiv = document.createElement("div");
+                newDiv.style.width = divWidth.value + "px";
+                newDiv.style.height = divHeight.value + "px";
+                newDiv.style.backgroundColor = "skyblue";
+                newDiv.style.margin = "10px";
+                var random = Math.random();
+                var border = newDiv.style.border;
+                newDiv.style.border = random*10 + "px" + " solid black";
+                document.body.appendChild(newDiv);
+
+                newDiv.onclick = function(){
+                    if(parseInt(this.style.border)>0) {
+                        this.style.border = "";
+                    } else {
+                        this.style.border = "5px solid red";
+                    }
+                }
+                
+            }
+
+        }
+        
+    </script>
+</body>
+</html>
