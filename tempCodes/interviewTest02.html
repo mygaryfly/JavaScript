@@ -5,11 +5,103 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>interviewTest02</title>
+    <style>
+        label > div {
+            display: inline-block;
+        }
+
+        .align {
+            display: flex;
+            justify-content: center;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
     <!-- 第二题，类似新建游戏角色，输入角色名，旁边有个按钮可以随机角色名，
     下面单选性别，下面在单选职业，最后点击创建，弹窗或者打印，提示用户，
     你的角色名叫xxxx，性别是xx，选择的职业是xx -->
+    <form action="">
+        <label for="">
+            请选择你的职业:
+            <br>
+            <div>
+                <img src="../img/fs.jpg" alt="法师">
+                <div class="align"><input type="radio" name="occupation" value="法师"></div>
+            </div>
+            <div>
+                <img src="../img/dz.jpg" alt="盗贼">
+                <div class="align"><input type="radio" name="occupation" value="盗贼"></div>
+             </div>
+            <div>
+                <img src="../img/dly.jpg" alt="德鲁伊">
+                <div class="align"><input type="radio" name="occupation" value="德鲁伊"></div>
+            </div>
+            <div>    
+                <img src="../img/sq.jpg" alt="圣骑士">
+                <div class="align"><input type="radio" name="occupation" value="圣骑士"></div>
+            </div>
+            <div>
+                <img src="../img/msdog.jpg" alt="牧师">
+                <div class="align"><input type="radio" name="occupation" value="牧师"></div>
+            </div>
+            <div>
+                <img src="../img/sm.jpg" alt="萨满">
+                <div class="align"><input type="radio" name="occupation" value="萨满"></div>
+            </div>
+            <div>
+                <img src="../img/zs.jpg" alt="战士">
+                <div class="align"><input type="radio" name="occupation" value="战士"></div>
+            </div>
+            <div>
+                <img src="../img/ss.jpg" alt="术士">
+                <div class="align"><input type="radio" name="occupation" value="术士"></div>
+            </div>
+        </label>
+    </form>
+
+
+    <form action="">
+        <div>
+            <label for="" style="display:block;">
+                请定义角色的性别：
+                <select>
+                    <option value="male">--</option>
+                    <option value="male">male</option>
+                    <option value="Female">Female</option>
+                    <option value="unknown">unknown</option>
+                </select>
+            </label>
+        </div>
+        <br>
+        <label for="">
+            为角色起名 - 请选择建立角色名的方法：
+            <select>
+                <option value="manual" id="manual">手动创建</option>
+                <option value="auto" id="auto">自动生成</option>
+            </select>
+            <br>
+            <input type="text">
+            <input type="button" id="btn" value="一键生成角色名">
+        </label>
+    </form>
     
+    <script>
+        var img = document.getElementsByTagName("img")
+        for (var i=0;i<img.length;i++){
+            var roleImg = img[i];
+            roleImg.onclick = function(){
+
+            }
+        }
+
+        function defineName () {
+
+        }
+
+    </script>
 </body>
 </html>
