@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interviewTest02</title>
+    <style>
+        label > div {
+            display: inline-block;
+        }
+
+        .align {
+            display: flex;
+            justify-content: center;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 第二题，类似新建游戏角色，输入角色名，旁边有个按钮可以随机角色名，
+    下面单选性别，下面在单选职业，最后点击创建，弹窗或者打印，提示用户，
+    你的角色名叫xxxx，性别是xx，选择的职业是xx -->
+    <form action="">
+        <label for="">
+            请创建角色的名称：
+            <input type="text" name="roleName" id="roleName">
+            <br>
+            请选择你的职业:
+            <br>
+            <div>
+                <img src="../img/fs.jpg" alt="法师">
+                <div class="align"><input type="radio" name="occupation" class="occupation" id="法师"></div>
+            </div>
+            <div>
+                <img src="../img/dz.jpg" alt="盗贼">
+                <div class="align"><input type="radio" name="occupation" class="occupation" id="盗贼"></div>
+             </div>
+            <div>
+                <img src="../img/dly.jpg" alt="德鲁伊">
+                <div class="align"><input type="radio" name="occupation" class="occupation" id="德鲁伊"></div>
+            </div>
+            <div>    
+                <img src="../img/sq.jpg" alt="圣骑士">
+                <div class="align"><input type="radio" name="occupation" class="occupation" id="圣骑士"></div>
+            </div>
+            <div>
+                <img src="../img/msdog.jpg" alt="牧师">
+                <div class="align"><input type="radio" name="occupation" class="occupation" id="牧师"></div>
+            </div>
+            <div>
+                <img src="../img/sm.jpg" alt="萨满">
+                <div class="align"><input type="radio" name="occupation" class="occupation" id="萨满"></div>
+            </div>
+            <div>
+                <img src="../img/zs.jpg" alt="战士">
+                <div class="align"><input type="radio" name="occupation" class="occupation" id="战士"></div>
+            </div>
+            <div>
+                <img src="../img/ss.jpg" alt="术士">
+                <div class="align"><input type="radio" name="occupation" class="occupation" id="术士"></div>
+            </div>
+        </label>
+    </form>
+
+
+    <form action="">
+        <div>
+            <label for="" style="display:block;">
+                请定义角色的性别：
+                <span>男</span>
+                <input type="radio" name="sex" class="sex" value="male">
+                <span>女</span>
+                <input type="radio" name="sex" class="sex" value="female">
+            </label>
+        </div>
+        <br>
+
+            <input type="button" id="create" value="生成你的角色">
+
+    </form>
+    
+    <script>
+
+        let roleName = document.getElementById("roleName");
+
+        let getRole = function(){
+           let roleList = document.getElementsByClassName("occupation")
+            for (let i=0;i<roleList.length;i++) {
+                var role = roleList[i];
+                var roleSelected;
+                if (role.checked == true) {
+                    roleSelected = role.id;
+                }
+            }
+            return roleSelected;
+        }
+
+        let getSex = function(){
+            let sexList = document.getElementsByClassName("sex")
+            for (let j=0;j<sexList.length;j++){
+                var sex = sexList[j];
+                var sexSelected;
+                if (sex.checked==true) {
+                    sexSelected = sex.value;
+                }
+            }
+            return sexSelected;
+        }
+
+        let createRole = document.getElementById("create");
+
+        createRole.onclick = function(){
+            alert("你的选择的职业是:"+ getRole() +" | 性别："+ getSex() + " | 角色名称是：" + roleName.value)
+        }
+
+    </script>
+</body>
+</html>
