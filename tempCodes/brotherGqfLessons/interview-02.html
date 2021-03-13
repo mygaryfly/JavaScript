@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>interview-02</title>
+    <style>
+      body > div {
+        margin: 10px 0;
+      }
+      span.job-span {
+        display: none;
+      }
+      span.active {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      昵称
+      <input type="text" name="username" />
+      <button id="randomBtn">随机</button>
+    </div>
+    <div>
+      性别
+      <label>
+        男 <input type="radio" name="gender" value="male" checked />
+      </label>
+      <label> 女 <input type="radio" name="gender" value="female" /> </label>
+    </div>
+    <div>
+      职业
+      <span class="job-span male-job active">
+        <label>
+          战士 <input type="radio" name="maleJob" value="zs" checked />
+        </label>
+        <label> 骑士 <input type="radio" name="maleJob" value="qs" /> </label>
+      </span>
+      <span class="job-span female-job">
+        <label>
+          法师 <input type="radio" name="femaleJob" value="fs" checked />
+        </label>
+        <label> 牧师 <input type="radio" name="femaleJob" value="ms" /> </label>
+      </span>
+    </div>
+    <div>
+      初始装备选择
+      <label> A套装 <input type="checkbox" name="items" value="a" /> </label>
+      <label> B套装 <input type="checkbox" name="items" value="b" /> </label>
+      <label> C套装 <input type="checkbox" name="items" value="c" /> </label>
+    </div>
+    <button id="sureBtn">确定</button>
+    <script>
+      const randomBtn = document.getElementById("randomBtn");
+      const sureBtn = document.getElementById("sureBtn");
+      const usernameInput = document.querySelector("input[name=username]");
+      const genderInputs = document.querySelectorAll("input[name=gender]");
+      const spans = document.querySelectorAll(".job-span");
+      // console.log(randomBtn, sureBtn)
+      randomBtn.onclick = function () {
+        usernameInput.value = Math.random().toString(16).substring(2);
+      };
+      for (let i = 0; i < genderInputs.length; i++) {
+        genderInputs[i].onchange = function () {
+          // console.log(this.value)
+          for (let j = 0; j < spans.length; j++) {
+            spans[j].classList.remove("active");
+          }
+          document.querySelector(`.${this.value}-job`).classList.add("active");
+        };
+      }
+      sureBtn.onclick = function () {
+        const username = usernameInput.value;
+        const gender = document.querySelector("input[name=gender]:checked")
+          .value;
+        const job = document.querySelector(`input[name=${gender}Job]:checked`)
+          .value;
+        const items = [...document.querySelectorAll(`input[name=items]:checked`)].map(item => item.value).join(',')
+        console.log({username, gender, job, items});
+        alert(JSON.stringify({username, gender, job, items}))
+      };
+    </script>
+  </body>
+</html>

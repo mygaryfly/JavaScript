@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>interview-01</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    div {
+      float: left;
+      width: 100px;
+      height: 100px;
+      background-color: rgba(0, 0, 0, .2);
+      border: 10px solid transparent;
+      box-sizing: border-box;
+      margin: 5px;
+      cursor: pointer;
+    }
+    div.active {
+      border-color: black;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const generateDiv = num => {
+      for (let index = 0; index < num; index++) {
+        const element = document.createElement('div')
+        element.onclick = function () {
+          element.classList.toggle('active')
+        }
+        document.body.appendChild(element)
+      }
+    }
+    generateDiv(100)
+  </script>
+</body>
+</html>
