@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单练习2</title>
+    <style>
+        span{
+            display: inline-block;
+            margin:20px 0;
+        }
+        #man, #female {
+            display: none;
+        }
+        #man + label, #female + label {
+            border: 1px solid black;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #man:checked + label,  #female:checked + label{
+            border-color: skyblue;
+            background-color: red;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <form action="">
+        <span>1. 小怪兽最喜欢吃的水果是？</span>
+        <br>
+        <label>
+            草莓
+            <input type="radio" name="question1" value="0">
+        </label>
+        <label>
+            香蕉
+            <input type="radio" name="question1" value="0">
+        </label>
+        <label>
+            西瓜
+            <input type="radio" name="question1" value="20">
+        </label>
+        <label>
+            葡萄
+            <input type="radio" name="question1" value="0">
+        </label>
+        <br>
+        <span>2. 小怪兽最喜欢奶茶的品牌是？</span>
+        <br>
+        <label for="">
+            7分甜
+            <input type="radio" name="question2" id="7分甜" value="0">
+        </label>
+        <label for="">
+            一点点
+            <input type="radio" name="question2" id="一点点" value="20">
+        </label>
+        <label for="">
+            CoCo
+            <input type="radio" name="question2" id="CoCo" value="0">
+        </label>
+        <label for="">
+            喜茶
+            <input type="radio" name="question2" id="喜茶" value="0">
+        </label>
+        <br>
+        <span>3. 小怪兽最喜欢听的歌是？</span>
+        <br>
+        <label for="">
+            光良-童话
+            <input type="radio" name="question3" id="童话" value="0">
+        </label>
+        <label for="">
+            迪迦奥特曼主题曲-奇迹再现
+            <input type="radio" name="question3" id="奇迹再现" value="0">
+        </label>
+        <label for="">
+            华晨宇-烟火里的尘埃
+            <input type="radio" name="question3" id="烟火里的尘埃" value="0">
+        </label>
+        <label for="">
+            薛之谦-天份
+            <input type="radio" name="question3" id="天份" value="20">
+        </label>
+        <br>
+        <span>4. 小怪兽最喜欢的运动是？</span>
+        <br>
+        <label for="">
+            篮球
+            <input type="radio" name="question4" id="篮球" value="0">
+        </label>
+        <label for="">
+            兵乓球
+            <input type="radio" name="question4" id="兵乓球" value="0">
+        </label>
+        <label for="">
+            游泳
+            <input type="radio" name="question4" id="游泳" value="0">
+        </label>
+        <label for="">
+            羽毛球
+            <input type="radio" name="question4" id="羽毛球" value="20">
+        </label>
+        <br>
+        <span>5. 小怪兽最喜欢做的事情是？</span>
+        <br>
+        <label for="">
+            睡觉
+            <input type="radio" name="question5" id="篮球" value="0">
+        </label>
+        <label for="">
+            学电脑
+            <input type="radio" name="question5" id="兵乓球" value="0">
+        </label>
+        <label for="">
+            打游戏
+            <input type="radio" name="question5" id="游泳" value="20">
+        </label>
+        <label for="">
+            钓鱼
+            <input type="radio" name="question5" id="羽毛球" value="0">
+        </label>
+        <br>
+
+        <input type="button" value="提交答案" id="submit" style="margin:20px 0;">
+        
+        <div>
+            <input type="radio" name="gender" id="man"><label for="man">男</label>
+            <input type="radio" name="gender" id="female"><label for="female">女</label>
+        </div>
+    </form>
+    <script>
+       
+
+        submit.onclick = function(){
+            let scoreSum = [];
+            let gqfScore = 0;
+            let items = document.getElementsByTagName("span").length;
+            for (let i=0;i<items;i++){
+                let question = document.getElementsByName("question"+(i+1));
+                // console.log(question);
+                for (let j=0;j<question.length;j++){
+                    let score;
+                    if (question[j].checked){
+                        score = question[j].value;
+                        gqfScore += score * 1;
+                        scoreSum.push(score);
+                    }
+                    
+                }
+            }
+            // console.log(scoreSum);
+            var cal = 0;
+            for (let k=0;k<scoreSum.length;k++){
+                cal+=Number(scoreSum[k]);
+            }
+
+            // console.log(cal);
+            // if (cal!=100){
+            //     alert ("才获得了"+cal+"分，没有满分，差评");
+            // } else {
+            //     alert ("哎哟100分，不错哦，居然那么了解小怪兽的吗？")
+            // }
+            console.log(gqfScore)
+        }
+    </script>
+</body>
+</html>

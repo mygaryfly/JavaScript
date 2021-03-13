@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    ul,li {
+      list-style: none;
+    }
+    ul {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+      width: 200px;
+      border: 1px solid black;
+    }
+    li {
+      padding: 10px 5px;
+      cursor: pointer;
+    }
+    li:hover {
+      background-color: skyblue;
+      color: #fff;
+    }
+    li + li {
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li data-color="red" data-gqf="nb" data-gql='lb'>变红色</li>
+    <li data-color="blue">变蓝色</li>
+  </ul>
+  <script>
+    const ul = document.querySelector('ul')
+    ul.onclick = function (e) {
+      if (e.target.tagName = "LI") {
+        console.log(e.target.dataset)
+        document.body.style.backgroundColor = e.target.dataset['color'];
+        ul.style.display = "none";
+      }
+    }
+    document.oncontextmenu = function (e) {
+      e.preventDefault();
+      let x = e.clientX;
+      let y = e.clientY;
+      
+      ul.style.display = "block";
+      ul.style.top = y + 'px'
+      ul.style.left = x + 'px'
+    }
+  </script>
+</body>
+</html>

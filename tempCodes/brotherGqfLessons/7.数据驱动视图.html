@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const arr = [1, 2, 3, 4]
+    document.onclick = function () {
+      arr.push(arr.length + 1)
+      render();
+    }
+    document.oncontextmenu = function (e) {
+      e.preventDefault();
+      console.log('right click')
+      arr.unshift(arr.length + 1)
+      render();
+    }
+    function render () {
+      document.body.innerHTML = "";
+      for(let i = 0; i < arr.length; i++) {
+        const div = document.createElement('div');
+        div.innerHTML = arr[i]
+        document.body.appendChild(div);
+      }
+    }
+    render()
+  </script>
+</body>
+</html>
