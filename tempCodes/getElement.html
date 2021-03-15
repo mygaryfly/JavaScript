@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素获取</title>
+    <style>
+        .gql {
+            margin: 20px;
+            background-color: cadetblue;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+
+        }
+
+        .cc {
+            width: 50px;
+            height: 50px;
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="gql">
+        <div class="cc"></div>
+        <div class="cc"></div>
+        <div class="cc"></div>
+    </div>
+    <div class="gql">
+        <div class="cc"></div>
+        <div class="cc"></div>
+        <div class="cc"></div>
+    </div>
+    <div class="gql">
+        <div class="cc"></div>
+        <div class="cc"></div>
+        <div class="cc"></div>
+    </div>
+
+    <script> 
+        var gql = document.querySelector(".gql");
+        gql.style.backgroundColor = "pink";
+        var gqls = document.querySelectorAll(".gql");
+        var counter = 0;
+        document.onclick = function(){
+            counter++;
+            for (let i=0;i<gqls.length;i++){
+                gqls[i].style.border = "2px solid black";
+                gqls[i].children[0].style.backgroundColor = "skyblue";
+                if (counter%2===0) {
+                    gqls[i].style.border = "";
+                    gqls[i].children[0].style.backgroundColor = "lightgreen";
+
+                }
+            }
+        }
+    </script>
+</body>
+</html>
