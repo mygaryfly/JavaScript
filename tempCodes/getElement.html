@@ -42,6 +42,8 @@
         <div class="cc"></div>
     </div>
 
+    <label></label><input type="text" name="unable" placeholder="不能输入文字"></label>
+    <div class="canNotPress"></div>
     <script> 
         var gql = document.querySelector(".gql");
         gql.style.backgroundColor = "pink";
@@ -59,6 +61,18 @@
                 }
             }
         }
+
+        var noneText = document.querySelector("input[name=unable]");
+        console.dir(noneText);
+        noneText.onkeypress = function(evt){
+            evt.preventDefault();
+            document.getElementsByClassName("canNotPress")[0].innerHTML = "这里不能输入文字哦"
+        }
+
+        noneText.addEventListener("keypress",function(evt){
+            evt.preventDefault();
+            document.getElementsByClassName("canNotPress")[0].innerHTML = "这里不能输入文字哦"
+        },false);
     </script>
 </body>
 </html>
