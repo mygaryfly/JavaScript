@@ -62,6 +62,10 @@
             }
         }
 
+        // 用cssText直接获取并添加style样式
+        gql.style.cssText += "box-shadow: 2px 2px 3px 1.5px teal;";
+        
+
         var noneText = document.querySelector("input[name=unable]");
         console.dir(noneText);
         noneText.onkeypress = function(evt){

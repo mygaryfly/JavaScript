@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this练习</title>
+</head>
+<body>
+    <script>
+        // 情况一：纯粹的函数调用（默认绑定）
+        // 这是函数的最通常用法，属于全局性调用，因此this就代表全局对象。
+        console.log("第一题答案,当然如果使用严格模式，x undefined;")
+        var x = 1;
+
+        function fn(){
+            // "use strict"; 如果使用严格模式，x undefined;
+            console.log(this.x)
+        }
+
+        fn();
+
+        // 情况二：作为对象方法的调用
+        // 函数还可以作为某个对象的方法调用，这时this就指这个上级对象。
+        // 函数的调用是在某个对象上触发的，即调用位置上存在上下文对象。(隐式绑定)
+        console.log("第二题答案")
+
+        let obj = new Object();
+        obj.a = 2;
+        obj.b = test;
+
+        function test (){
+            console.log(this.a);
+        }
+
+        obj.b();
+
+        // 情况三 作为构造函数调用
+        // 所谓构造函数，就是通过这个函数，可以生成一个新对象。这时，this就指这个新对象。
+        // 此时x并不指向全局对象
+        console.log("第三题答案")
+
+        function fx (){
+            this.x = 3
+        }
+
+        var obj3 = new fx();
+
+        console.log(obj3.x)
+
+        // 情况四 apply 调用
+        // apply()是函数的一个方法，作用是改变函数的调用对象。它的第一个参数就表示改变后的调用这个函数的对象。
+        // 因此，这时this指的就是这第一个参数。
+        console.log("第四题答案")
+
+        var n = 0;
+        function test4 (){
+            console.log(this.n);
+        }
+
+         let obj4 = {};
+         obj4.n = 4;
+         obj4.m = test4;
+
+        obj4.m.apply();
+        console.log("第四题如果直接调用test4函数，答案")
+
+        obj4.m();
+
+        // 情况五，定时器setTimeout和setInterval
+        // 超时调用的代码都是在全局作用域中执行的，因此函数中this的值在非严格模式下指向window对象，在严格模式下是undefined。
+        console.log("第五题答案")
+
+        var name = "window第五题答案timeout";
+        var obj5 = {
+            name: "obj",
+            foo5: function() {
+                setTimeout(function() {
+                    console.log(this.name);
+                }, 1);
+            }
+        }
+        obj5.foo5(); // "window"
+
+        // 情况六,隐式绑定之多层调用链
+        console.log("第六题答案")
+        function foo6() {
+            console.log(this.a);
+        }
+        var obj6b = {
+            a: 2,
+            fn: foo6
+        };
+        var obj6a = {
+            a: 1,
+            o1: obj6b
+        };
+        obj6a.o1.fn(); // 2
+
+        //情况七,通过这两个方法call(…)或apply(…)来实现 --- (显式绑定)
+        console.log("第七题答案")
+        function foo7() { 
+            console.log( this.a );
+        }
+
+        var a = 2;
+
+        var obj7a = { 
+            a: 3,
+        };
+
+        var obj7b = { 
+            a: 4,
+        };
+        foo7.call( obj7a ); // 3
+        foo7.call( obj7b ); // 4
+
+
+
+
+
+
+    </script>
+</body>
+</html>
