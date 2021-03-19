@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第五节课作业</title>
+    <style>
+        :root {
+            --boxWidth: 50vw;
+            --boxHeight: 70vw;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            overflow:hidden;
+            width: var(--boxWidth);
+            height: var(--boxHeight);
+            background-color: pink;
+        }
+
+        #textContent {
+            width: calc(var(--boxWidth)*0.8);
+            height: calc(var(--boxWidth)/5);
+            outline: none;
+        }
+
+        #submit {
+            align-self: flex-end;
+            margin-right: calc(var(--boxWidth)*0.1);
+        }
+
+        .comment {
+            width: calc(var(--boxWidth)*0.8); 
+            height: calc(var(--boxWidth)/20);
+            margin: 30px 0;
+            border-bottom: 1px dotted gray;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="container">
+        <input type="text" id="textContent">
+        <input type="button" id ="submit" value="提交">
+    </ul>
+    <script>
+        let container = document.getElementById("container");
+        let textContent = document.getElementById('textContent');
+        let submit = document.getElementById("submit");
+        let commentList = document.getElementsByClassName("comment");
+
+        submit.onclick = function(evt){
+            if (textContent.value !==''){
+            let cmt = document.createElement("li");
+            cmt.className = "comment";
+            container.appendChild(cmt);
+            cmt.innerHTML = textContent.value;
+            textContent.value = "";
+            
+            }
+
+        }
+
+    </script>
+</body>
+</html>
