@@ -6,15 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
+        #menu {
+            width: 180px;
+            height: 240px;
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body>
-
+    <form id="menu">
+        <label>
+            是否需要调整右键菜单样式
+            <input type="checkbox">
+        </label>
+        <form id="menuStyle">
+            <label>
+                <input type="text" placeholder="请定义菜单宽度">
+            </label>
+            <br>
+            <label>
+                <input type="text" placeholder="请定义菜单高度">
+            </label>
+            <label>
+                定义菜单背景色
+                <input type="color">
+            </label>
+            <input type="button" value="确认更改样式">
+            <br>
+            <span>Welcome to JS world!!</span>
+        </form>
+    </form>    
+    
     <script>
     // 右健自定义菜单，弹出表单，输入div宽度高度颜色单选是否是开关，
     // 点击确定，生成div在用户右健的位置，如果用户勾选为开关的div，
     // 可以点击切换开关，没有勾选开关，生成的div没有功能交互效果
+        let selection = document.querySelector("input");
+        let menuStyle = document.querySelector("form.menu form");
+        if (selection.checked) {
+            menuStyle.style.display = "none";
+        }
     </script>
 </body>
 </html>
