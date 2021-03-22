@@ -8,21 +8,40 @@
     <style>
         #menu {
             display: flex;
+            position: absolute;
             justify-content: space-evenly;
             align-items: center;
             flex-direction: column;
+            left: 0;
+            top: 0;
             width: 180px;
             height: 240px;
             border: 1px solid black;
-            -opacity: 0;
+            opacity: 0;
+            background-color: cornsilk;
         }
 
-        div {
+        #menuStyle {
             display: none;
         }
 
-        span {
-            vertical-align: center;
+        #deskDiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin:auto;
+            width: 400px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+
+        #divChange {
+            background-color: blanchedalmond;
         }
     </style>
 </head>
@@ -46,16 +65,29 @@
             </label>
             <input type="button" id="change" value="确认更改样式">
             <br>
+            <label>
+                <input type="text" id="divWidth" placeholder="请定义div宽度">
+            </label>
+            <br>
+            <label>
+                <input type="text" id="divHeight" placeholder="请定义div高度">
+            </label>
+            <label>
+                定义div背景色
+                <input type="color" name="divColor">
+            </label>
+            <input type="button" id="divChange" value="更改div样式">
         </div>
-        <span>Welcome to JS world!!</span>
     </form>    
-    
+    <div id="deskDiv">
+        <span>Welcome to JS world!!</span>
+    </div>
     <script>
     // 右健自定义菜单，弹出表单，输入div宽度高度颜色单选是否是开关，
     // 点击确定，生成div在用户右健的位置，如果用户勾选为开关的div，
     // 可以点击切换开关，没有勾选开关，生成的div没有功能交互效果
         let selection = document.querySelector("input");
-        let menuStyle = document.querySelector("div");
+        let menuStyle = document.getElementById("menuStyle")
         selection.onclick = function(){
             selection.checked ? menuStyle.style.display="block" : menuStyle.style.display="none";
         }
@@ -83,7 +115,26 @@
             menu.style.display = "block";
             menu.style.top = y + 'px'
             menu.style.left = x + 'px'
+            menu.style.opacity = "1";
+
+            menu.style.zIndex = "1";
         }
+
+        let divWidth = document.querySelector("#divWidth");
+        let divHeight = document.querySelector("#divHeight");
+        let divColor = document.getElementsByName("divColor")[0];
+        let deskDiv = document.getElementById("deskDiv");
+        let divChange = document.getElementById("divChange");
+
+        divChange.onclick = function(){
+
+            menu.style.opacity = "0";
+
+            deskDiv.style.width = divWidth.value + "px";
+            deskDiv.style.height = divHeight.value + "px";
+            deskDiv.style.backgroundColor = divColor.value;
+        }
+        
     </script>
 </body>
 </html>
