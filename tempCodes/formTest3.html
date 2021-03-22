@@ -7,9 +7,22 @@
     <title>Document</title>
     <style>
         #menu {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
             width: 180px;
             height: 240px;
             border: 1px solid black;
+            -opacity: 0;
+        }
+
+        div {
+            display: none;
+        }
+
+        span {
+            vertical-align: center;
         }
     </style>
 </head>
@@ -17,24 +30,24 @@
     <form id="menu">
         <label>
             是否需要调整右键菜单样式
-            <input type="checkbox">
+            <input type="checkbox" name="selection">
         </label>
-        <form id="menuStyle">
+        <div id="menuStyle">
             <label>
-                <input type="text" placeholder="请定义菜单宽度">
+                <input type="text" id="menuWidth" placeholder="请定义菜单宽度">
             </label>
             <br>
             <label>
-                <input type="text" placeholder="请定义菜单高度">
+                <input type="text" id="menuHeight" placeholder="请定义菜单高度">
             </label>
             <label>
                 定义菜单背景色
-                <input type="color">
+                <input type="color" name="color">
             </label>
-            <input type="button" value="确认更改样式">
+            <input type="button" id="change" value="确认更改样式">
             <br>
-            <span>Welcome to JS world!!</span>
-        </form>
+        </div>
+        <span>Welcome to JS world!!</span>
     </form>    
     
     <script>
@@ -42,9 +55,34 @@
     // 点击确定，生成div在用户右健的位置，如果用户勾选为开关的div，
     // 可以点击切换开关，没有勾选开关，生成的div没有功能交互效果
         let selection = document.querySelector("input");
-        let menuStyle = document.querySelector("form.menu form");
-        if (selection.checked) {
-            menuStyle.style.display = "none";
+        let menuStyle = document.querySelector("div");
+        selection.onclick = function(){
+            selection.checked ? menuStyle.style.display="block" : menuStyle.style.display="none";
+        }
+        
+        let change = document.getElementById("change");
+        let menuWidth = document.getElementById("menuWidth");
+        let menuHeight = document.getElementById("menuHeight");
+        let color = document.getElementsByName("color")[0];
+        let menu = document.querySelector("form");
+        menu.style.width = "180px";
+        menu.style.height = "240px"
+
+        change.onclick = function (){
+ 
+                menu.style.width = menuWidth.value + "px";
+                menu.style.height = menuHeight.value + "px";
+                menu.style.backgroundColor = color.value;
+        }
+
+        document.oncontextmenu = function (event) {
+            event.preventDefault();
+            let x = event.clientX;
+            let y = event.clientY;
+            
+            menu.style.display = "block";
+            menu.style.top = y + 'px'
+            menu.style.left = x + 'px'
         }
     </script>
 </body>
