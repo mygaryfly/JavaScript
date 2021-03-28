@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        // Fibonacci sequence u斐波那契数列
+        // 一，Fibonacci sequence u斐波那契数列
 
         function fb1 (n) {
             let fbArr = [0,1];
@@ -21,14 +21,18 @@
                 }
             }
             console.log(fbArr);
+            return fbArr;
         }
+
+        // 1、1、2、3、5、8、13、21、34、……、求n;
 
         function fb2 (n) {
-            let fbArr = [0,1];
-            if (n <= 1) return {fbArr};
+            if (n<=2) {return 1}
+            return fb2(n-1) +fb2(n-2);
 
-            return fbArr.concat
         }
+
+
     </script>
 </body>
 </html>
