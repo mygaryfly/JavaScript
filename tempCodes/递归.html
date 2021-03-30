@@ -120,13 +120,26 @@
         factorial4(5);                // 120
         factorial4(10);               // 3628800
 
-
-
-
-
         // 链接：https://juejin.cn/post/6844903590033621006
         // 来源：掘金
 
+        // 快速排序
+        function quickSort(arr) {
+            if(arr.length < 2) {
+                return arr;
+            } else {
+                const pivot = arr[0]; // 基准值
+                const pivotArr = []; // 一样大的放中间
+                const lowArr= []; // 小的放左边
+                const hightArr = []; // 大的放右边
+                arr.forEach(current => {
+                if(current === pivot) pivotArr.push(current);
+                else if(current > pivot) hightArr.push(current);
+                else lowArr.push(current);
+                })
+                return quickSort(lowArr).concat(pivotArr).concat(quickSort(hightArr));
+            }
+        }
 
 
 
