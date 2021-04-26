@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递归</title>
+</head>
+<body>
+    <img src="../img/尾递归优化.jpg" alt="尾递归优化">
+    <script>
+
+        // * 当一个函数调用自身，就叫做递归。
+        //*  当一个函数尾调用自身，就叫做尾递归。
+
+        // 一，Fibonacci sequence u斐波那契数列
+
+        function fb1 (n) {
+            let fbArr = [0,1];
+            if (n <= 1) {
+                return fbArr;
+            } else {
+                fbArr.length += n;
+                for (let i = 2; i < fbArr.length; i++) {
+                    fbArr[i] = (fbArr[i-1]+fbArr[i-2]);
+                }
+            }
+            console.log(fbArr);
+            return fbArr;
+        }
+
+        // 1、1、2、3、5、8、13、21、34、……、求n;
+
+        function fb2 (n) {
+            if (n<=2) {return 1}
+            return fb2(n-1) +fb2(n-2);
+
+        }
+
+        // 尾递归优化
+        // Eg
+        function foo () { console.log(111); }
+        function bar () { foo(); }
+        function baz () { bar(); }
+
+        baz();
+
+        // baz() 里面调用了 bar() 函数，并没有 return 该调用，
+        // 所以在调用栈中保持自己的调用帧，同时 bar() 函数的调用帧在调用栈中生成，
+        // 同理，bar() 函数又调用了 foo() 函数，最后执行到 foo() 函数的时候，没有再调用其他函数，
+        // 这里没有显示声明 return，所以这里默认 return undefined。
+        //  * foo() 执行完了，销毁调用栈中自己的记录，依次销毁 bar() 和 baz() 的调用帧，最后完成整个流程。
+
+        // 如果对上面的例子做如下修改：
+        function foo () { console.log(111); }
+        function bar () { return foo(); }
+        function baz () { return bar(); }
+
+        baz();
+
+        // * 这里要注意：尾调用优化只在严格模式下有效。
+
+        // * 我们可以很清楚的看到，尾调用由于是函数的最后一步操作，所以不需要保留外层函数的调用记录，
+        // * 只要直接用内层函数的调用记录取代外层函数的调用记录就可以了，调用栈中始终只保持了一条调用帧。
+        // * 这就叫做尾调用优化，如果所有的函数都是尾调用的话，那么在调用栈中的调用帧始终只有一条，
+        // * 这样会节省很大一部分的内存，这也是尾调用优化的意义。
+
+        // 二，阶乘
+        function factorial1 (num) {
+            if (num === 1) return 1;
+            return num * factorial1(num - 1);
+        }
+
+        factorial1(5);            // 120
+        factorial1(10);           // 3628800
+        factorial1(500000);       // Uncaught RangeError: Maximum call stack size exceeded
+
+        // 上面是使用递归来计算阶乘的例子，操作系统为JS引擎调用栈分配的内存是有大小限制的，
+        // 如果计算的数字足够大，超出了内存最大范围，就会出现栈溢出错误
+
+        'use strict';
+
+        function factorial2 (num, total) {
+            if (num === 1) return total;
+            return factorial(num - 1, num * total);
+        }
+
+        factorial2(5, 1);                // 120
+        factorial2(10, 1);               // 3628800
+        factorial2(500000, 1);           // 分情况
+
+        // * 尾递归的实现，往往需要改写递归函数，确保最后一步只调用自身。 
+        // * 要做到这一点，需要把函数内部所有用到的中间变量改写为函数的参数，就像上面的factorial()函数改写一样
+        // * 这样做的缺点就是语义不明显
+        // * 解决这个问题的办法有两个：
+        // 方法1. ES6参数默认值
+
+        'use strict';
+
+        function factorial3 (num, total = 1) {
+            if (num === 1) return total;
+            return factorial3(num - 1, num * total);
+        }
+
+        factorial3(5);                // 120
+        factorial3(10);               // 3628800
+
+
+        // 方法2. 用一个符合语义的函数去调用改写后的尾递归函数
+
+        function tailFactorial (num, total) {
+            if (num === 1) return total;
+            return tailFactorial(num - 1, num * total);
+        }
+
+        function factorial4 (num) {
+            return tailFactorial(num, 1);
+        }
+
+        factorial4(5);                // 120
+        factorial4(10);               // 3628800
+
+        // 链接：https://juejin.cn/post/6844903590033621006
+        // 来源：掘金
+
+        // 快速排序
+        function quickSort(arr) {
+            if(arr.length < 2) {
+                return arr;
+            } else {
+                const pivot = arr[0]; // 基准值
+                const pivotArr = []; // 一样大的放中间
+                const lowArr= []; // 小的放左边
+                const hightArr = []; // 大的放右边
+                arr.forEach(current => {
+                if(current === pivot) pivotArr.push(current);
+                else if(current > pivot) hightArr.push(current);
+                else lowArr.push(current);
+                })
+                return quickSort(lowArr).concat(pivotArr).concat(quickSort(hightArr));
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>
