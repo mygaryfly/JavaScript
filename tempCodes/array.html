@@ -81,14 +81,23 @@
             //   如果省略了 thisValue ，"this" 的值为 "undefined"
         console.log('3.1 every()');
         let arr5 = [22,3,189,56,443,1,75,48];
+        let tempArr = [];
         function test (item,index,arr5) {
-            let tempArr = [];
             if (item < 200 ) return tempArr.push(item);
         }
         arr5.every(test);;
-        console.log(arr5.every(test));
+        console.log(tempArr + '剩余的元素不会再检测');
 
+        // 3.2 some()
+        // some() 方法测试数组中是不是至少有1个元素通过了被提供的函数测试。
+        // 它返回的是一个Boolean类型的值。
+        console.log('3.2 some()');
+        const arr6 = [3,78,12,5,22,19,58,81];
+        function isBiggerThan30 (ele,index,array) {
+            return ele > 30;
+        }
 
+        console.log(arr6.some(isBiggerThan30)); // 返回结果true
 
 
     </script>
